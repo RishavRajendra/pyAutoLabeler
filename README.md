@@ -6,9 +6,6 @@ Single Shot Multibox Detector(SSD) implementation in PyTorch burrowed from:
 
 * [qfgaohao/pytorch-ssd](https://github.com/qfgaohao/pytorch-ssd)
 
-## Tutorial
-
-TODO
 
 ## Preparation
 
