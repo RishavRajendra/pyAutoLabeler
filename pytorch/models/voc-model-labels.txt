@@ -1,0 +1,12 @@
+background
+slope
+start
+blocka
+blockb
+blockc
+blockd
+blocke
+blockf
+obstacle
+side
+corner
