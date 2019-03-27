@@ -61,7 +61,7 @@ wget -P models https://storage.googleapis.com/models-hao/mb2-imagenet-71_8.pth
 
 ### Train
 
-Train the VGG based SSD implementation:
+Train the VGG based SSD model that will label our images for us:
 
 ```
 cd pytorch
@@ -95,20 +95,22 @@ python eval_ssd.py --net vgg16-ssd --dataset vision/datasets/images/test/ --trai
 
 ## Label new images
 
-Label new images using the newly trained model:
-
+Use the newly trained model to label new images to increase the size of your dataset:
 ```
 python img_to_xml.py <path_to_images> <path_to_annotations> <model_path> <label_path>
 ```
+I highly recommend going through the labeled images with [LabelImg](https://github.com/tzutalin/labelImg) to validate and improve the bounding box accuracy of your mobile model. 
 
 ## Tensorflow Support
 
-If you want to use the labelled images for Tensorflow Object Detection API, convert XML to CSV:
-
+If you want to use the labeled images for Tensorflow Object Detection API, convert XML to CSV:
 ```
 python xml_to_csv.py <dataset_path>
 ```
-Dataset should follow the directory structure shown in Data Preparation.
+Dataset provided in <dataset_path> should follow the directory structure shown in Data Preparation. After converting the generated XML to CSV, you can use ```generate_tfrecord.py``` to create your tfrecords file. Some Tensorflow Object Detection API turorials I love are:
+
+* [EdjeElectronics](https://github.com/EdjeElectronics/TensorFlow-Object-Detection-API-Tutorial-Train-Multiple-Objects-Windows-10)
+* [Sentdex](https://www.youtube.com/watch?v=COlbP62-B-U&list=PLQVvvaa0QuDcNK5GeCQnxYnSSaar2tpku)
 
 ## Authors
 
